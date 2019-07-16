@@ -1,0 +1,22 @@
+.mat-input-element {
+    caret-color: #3f51b5;
+    width: 90vh;
+    outline: none;
+    vertical-align: top;
+    border: transparent;
+    background-color: #f1f3f4;
+    height: 3vh;
+}
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    background-color: #f1f3f4;
+    width: 64vw;
+    height: 3vh;
+    border-radius: 14px;
+}
+.mat-toolbar {
+    background-color: #ffffff;
+}
