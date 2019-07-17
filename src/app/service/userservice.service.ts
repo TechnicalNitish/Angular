@@ -20,8 +20,12 @@ export class UserserviceService {
     return this.http.post(this.baseUrl + url, data);
   }
 
-  public getRequest(url: any): any 
+  public getRequest(url:any): any 
   {
     return this.http.get(this.baseUrl+url,{headers:new HttpHeaders().set("token",localStorage.getItem('token')||'')}) ;
+  }
+  public putRequest(url:any,data:any):any
+  {
+    return this.http.put(this.baseUrl+url,data,{headers:new HttpHeaders().set("token",localStorage.getItem('token')||'')});
   }
 }

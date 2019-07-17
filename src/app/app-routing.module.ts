@@ -5,7 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgetComponent } from './components/forget/forget.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent} from './components/dashboard/dashboard.component';
-  
+ import { NoteComponent } from './components/note/note.component';
 const routes: Routes = [
   {
     path:"register",
@@ -20,7 +20,7 @@ const routes: Routes = [
     component:ForgetComponent
   },
   {
-    path:"reset",
+    path:"reset/:data",
     component:ResetPasswordComponent
   },
   {
@@ -34,4 +34,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+ }

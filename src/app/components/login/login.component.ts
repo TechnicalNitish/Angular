@@ -40,8 +40,7 @@ export class LoginComponent implements OnInit {
             this.snackBar.open(data.messageStatus,'Not Registered',{duration:1000});
             this.router.navigateByUrl("/register");
           }
-      }
-    )
+      } )
   }
 
 }

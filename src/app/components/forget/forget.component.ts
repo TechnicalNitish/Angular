@@ -16,7 +16,8 @@ export class ForgetComponent implements OnInit {
   
     forget:ForgetModel=new ForgetModel();
    
-    email=new FormControl(this.data);
+
+    email=new FormControl(this.forget.email);
 
   ngOnInit() {
   }
@@ -25,10 +26,10 @@ export class ForgetComponent implements OnInit {
   {
     this.userservice.getRequest("userservice/forget?email="+this.forget.email).subscribe(
       data=>{
-        if(data.statusCode== 200)
+        if(data.statuscode==200)
         {
-          this.snackbar.open(data.messageStatus,'ok',{duration:1000});
-          this.router.navigateByUrl("/setpassword");
+          this.snackbar.open("mail send",'ok',{duration:1000});
+          
         }
         else{
           this.snackbar.open(data.messageStatus,'Retry',{duration:1000});

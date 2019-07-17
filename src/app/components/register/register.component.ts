@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
               this.router.navigateByUrl("/login");
             }
             else{
-              this.snackBar.open(data.messageStatus,'Retry',{duration:1000});
+              this.snackBar.open(data.messageStatus,'User Already Exist',{duration:1000});
               this.router.navigateByUrl("/register");
             }
           }

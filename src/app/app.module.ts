@@ -21,6 +21,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatListModule} from '@angular/material/list';
+import { NoteComponent } from './components/note/note.component';
 
 
 @NgModule({
@@ -31,6 +35,7 @@ import {MatDividerModule} from '@angular/material/divider';
     ForgetComponent,
     ResetPasswordComponent,
     DashboardComponent,
+    NoteComponent,
     
     
   ],
@@ -51,8 +56,10 @@ import {MatDividerModule} from '@angular/material/divider';
     MatExpansionModule,
     MatMenuModule,
     MatToolbarModule,
-    MatDividerModule
-    
+    MatDividerModule,
+    MatSidenavModule,
+    MatTooltipModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

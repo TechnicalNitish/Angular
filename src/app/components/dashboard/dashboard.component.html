@@ -1,44 +1,90 @@
-<div fxlLayout="row" fxLayoutAlign="start" fxFlex="100">
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="20%">
     <mat-toolbar>
-        <div fxLayout="row" fxLayoutGap="20px">
-            <div> <button mat-icon-button>
-                    <mat-icon>menu</mat-icon>
-                </button></div>
-                <div>
-                    <img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png">
-                </div>
-         <div> fundooNotes
+
+        <div fxLayout="row" fxFlex="10">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon matTooltip="menu">menu</mat-icon>
+            </button>
         </div>
-        <div fxLayout="row" fxFlex="40">
+        <div fxLayout="row" fxFlex="5">
+            <img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png">
+        </div>
+
+        <div fxLayout="row" flex="8"><span>fundoo</span></div>
+
+        <div fxLayout="row" fcFlex="40">
             <mat-card>
-                    <button mat-icon-button>
-                            <mat-icon>search</mat-icon>
-                        </button>
+                <button mat-icon-button>
+                    <mat-icon class="search">search</mat-icon>
+                </button>
                 <input matInput placeholder="Search">
             </mat-card>
         </div>
-    </div>
+        <div fxLayout="row" class="left-icon1">
 
-</mat-toolbar>
-<div fxLayout="row">
-        <div> 
             <button mat-icon-button>
                 <mat-icon>drag_handle</mat-icon>
             </button>
+
         </div>
-    </div>
 
+        <div fxLayout="column" fxLayoutAlign="start">
+            <button mat-button [matMenuTriggerFor]="menu" mat-icon-button>
+                <mat-icon>
+                    apps
+                </mat-icon>
+            </button>
 
-<div fxLayout="row" fxLayoutGap="10px">
-        <button mat-button [matMenuTriggerFor]="menu" mat-icon-button>
-            <mat-icon>
-                view_comfy
-            </mat-icon>
-        </button>
-    
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>emailidoflogged</button>
-            <button mat-menu-item>SingOut</button>
-        </mat-menu>
-    </div>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>emailidoflogged</button>
+                <button mat-menu-item>SingOut</button>
+            </mat-menu>
+        </div>
+
+        <div fxLayout="row">
+
+            <button mat-icon-button>
+                <mat-icon>account_circle</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
 </div>
+       
+<mat-sidenav-container class="example-container">
+        <app-note></app-note>
+    <mat-sidenav #sidenav class="example-sidenav" mode="side">
+        <mat-nav-list class="navigationlist">
+            <mat-list class="mat-list">
+                <div>
+                    <button mat-button>
+                        <mat-icon>lightbulb_outline</mat-icon> Notes
+                    </button>
+                </div>
+                <div>
+                    <button mat-button>
+                        <mat-icon>notifications_none</mat-icon> Reminder
+                    </button>
+                </div>
+                <div>
+                    <button mat-button>
+                        <mat-icon>edit</mat-icon> Edit
+                    </button>
+                </div>
+                <div>
+                    <button mat-button>
+                        <mat-icon>archive</mat-icon> Archive
+                    </button>
+                </div>
+                <div>
+                    <button mat-button>
+                        <mat-icon>delete </mat-icon>
+                        Bin
+                    </button>
+                </div>
+            </mat-list>
+        </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container>
+
+        
+   
