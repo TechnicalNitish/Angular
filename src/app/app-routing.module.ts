@@ -5,7 +5,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgetComponent } from './components/forget/forget.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent} from './components/dashboard/dashboard.component';
- import { NoteComponent } from './components/note/note.component';
+import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
+import { GetNoteComponent } from './components/get-note/get-note.component';
+
 const routes: Routes = [
   {
     path:"register",
@@ -26,7 +28,21 @@ const routes: Routes = [
   {
     path:"home",
     component:DashboardComponent
-  }
+  },
+  // {
+  //   path:"note",
+  //   component:NoteComponent
+  // }
+  // {
+  //   path:"loginpractice",
+  //   component:LoginpracticeComponent
+  // }
+
+  {
+  path:"dialogueBox",
+  component:DialogueBoxComponent
+  },
+  {path:'noteGet',component:GetNoteComponent}
 
 ];
 

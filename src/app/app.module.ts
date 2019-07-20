@@ -10,7 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule,ReactiveFormsModule, FormGroup }   from '@angular/forms';
+import { FormsModule,ReactiveFormsModule}   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
@@ -25,6 +25,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatListModule} from '@angular/material/list';
 import { NoteComponent } from './components/note/note.component';
+import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
+import { GetNoteComponent } from './components/get-note/get-note.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { NoteComponent } from './components/note/note.component';
     ResetPasswordComponent,
     DashboardComponent,
     NoteComponent,
+    DialogueBoxComponent,
+    GetNoteComponent,
     
     
   ],
@@ -59,7 +63,8 @@ import { NoteComponent } from './components/note/note.component';
     MatDividerModule,
     MatSidenavModule,
     MatTooltipModule,
-    MatListModule
+    MatListModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

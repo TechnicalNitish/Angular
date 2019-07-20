@@ -16,7 +16,8 @@ export class UserserviceService {
   }
 
   token1 = this.route.snapshot.paramMap.get('token');
-  public postRequest(url: any, data: any): any {
+  public postRequest(url: any, data: any): any
+   {
     return this.http.post(this.baseUrl + url, data);
   }
 
@@ -28,4 +29,6 @@ export class UserserviceService {
   {
     return this.http.put(this.baseUrl+url,data,{headers:new HttpHeaders().set("token",localStorage.getItem('token')||'')});
   }
+
+  
 }

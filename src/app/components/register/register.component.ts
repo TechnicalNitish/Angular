@@ -33,6 +33,9 @@ export class RegisterComponent implements OnInit {
     password= new FormControl('');
     address=new FormControl('');
   ngOnInit() {
+
+
+
   }
   onRegister()
   {
@@ -41,12 +44,12 @@ export class RegisterComponent implements OnInit {
 
             if(data.statuscode==200)
             {
-              this.snackBar.open(data.messageStatus,'ok',{duration:1000});
-              this.router.navigateByUrl("/login");
+              this.snackBar.open("Successfully Register", "undo",{duration:2500});
+               this.router.navigateByUrl("/login");
             }
             else{
-              this.snackBar.open(data.messageStatus,'User Already Exist',{duration:1000});
-              this.router.navigateByUrl("/register");
+              this.snackBar.open("Registration fails", "retry", {duration:2500});
+             this.router.navigateByUrl("/register");
             }
           }
         )

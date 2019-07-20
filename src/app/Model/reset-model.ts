@@ -1,3 +1,4 @@
 export class ResetModel {
-    password:string;
+    newpassword:string;
+    confirmpassword:string;
 }

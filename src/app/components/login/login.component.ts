@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
     password=new FormControl('');
 
   ngOnInit() {
+  
+    
   }
   onLogin()
   {
@@ -33,11 +35,13 @@ export class LoginComponent implements OnInit {
       data=>{
           if(data.statuscode==200)
           {
-            this.snackBar.open(data.messageStatus,'ok',{duration:1000});
-              
+            this.snackBar.open("login Successful",'ok',{duration:1000});
+            console.log("response",data.data);
+            localStorage.setItem("token",data.data)
+            this.router.navigateByUrl('/home')
           }
           else{
-            this.snackBar.open(data.messageStatus,'Not Registered',{duration:1000});
+            this.snackBar.open("Sorry",'Not Registered',{duration:1000});
             this.router.navigateByUrl("/register");
           }
       } )

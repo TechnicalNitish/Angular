@@ -29,10 +29,11 @@ export class ForgetComponent implements OnInit {
         if(data.statuscode==200)
         {
           this.snackbar.open("mail send",'ok',{duration:1000});
-          
+          localStorage.setItem("token",data.data);
+            
         }
         else{
-          this.snackbar.open(data.messageStatus,'Retry',{duration:1000});
+          this.snackbar.open("Incorrect Email",'Retry',{duration:1000});
         }
       }
     )
