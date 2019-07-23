@@ -25,8 +25,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatListModule} from '@angular/material/list';
 import { NoteComponent } from './components/note/note.component';
-import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
 import { GetNoteComponent } from './components/get-note/get-note.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
+import { IconComponent } from './components/icon/icon.component';
 
 
 @NgModule({
@@ -38,8 +40,10 @@ import { GetNoteComponent } from './components/get-note/get-note.component';
     ResetPasswordComponent,
     DashboardComponent,
     NoteComponent,
-    DialogueBoxComponent,
     GetNoteComponent,
+    ArchiveComponent,
+    TrashComponent,
+    IconComponent,
     
     
   ],

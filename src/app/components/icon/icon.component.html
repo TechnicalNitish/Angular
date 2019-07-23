@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayoutAlign="start">
+        <button mat-icon-button>
+          <mat-icon>notifications_none</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>person_add</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>color_lens</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>crop_original</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onArchive()">
+          <mat-icon>archive</mat-icon>
+        </button>
+
+        <button mat-button [matMenuTriggerFor]="menu" mat-icon-button>
+            <mat-icon>
+                    more_vert
+            </mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+                
+                <button mat-menu-item (click)="onTrash()">Delete Note</button>
+                <button mat-menu-item>Add Label</button>
+
+            </mat-menu>
+        <!-- <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button> -->
+        <!-- <button mat-icon-button>
+          <mat-icon>undo</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>redo</mat-icon>
+        </button> -->
+    </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { TrashComponent } from '../trash/trash.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,8 +9,11 @@ import { Route, ActivatedRoute, Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  
   constructor(private route:Router) { }
 
+  
+  
   ngOnInit() {
   }
 
@@ -17,8 +21,21 @@ export class DashboardComponent implements OnInit {
   onLogOut()
   {
     localStorage.removeItem('token');
+   
     this.route.navigateByUrl("/login");
   }
 
- 
+  trashShow()
+  {
+     this.route.navigateByUrl("home/trash");
+  }
+
+archiveShow()
+{
+  this.route.navigateByUrl("home/archive");
+}
+getNote()
+{
+  this.route.navigateByUrl("home/get-note");
+}
 }

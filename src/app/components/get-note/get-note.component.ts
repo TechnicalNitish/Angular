@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
 import { MatSnackBar } from '@angular/material';
 
@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class GetNoteComponent implements OnInit {
 
-  constructor(private noteservice: NoteService, private snapBar: MatSnackBar) { }
+  constructor(private noteservice: NoteService,private snackbar:MatSnackBar) { }
 
   noteList: any;
   ngOnInit() {
@@ -25,4 +25,23 @@ export class GetNoteComponent implements OnInit {
       }
     )
   }
+
+  //  @Input() noteInfo:any;
+  //  onArchive()
+  //  {
+  //     this.noteservice.putRequest("noteservice/archive",this.noteInfo.noteid).subscribe(
+  //        data =>{
+  //      if(data==200)
+  //         {
+  //              this.snackbar.open("Archive","Done");
+                
+  //            }
+  //            else{
+  //                this.snackbar.open("Not Archived");
+  //           }
+  //        }
+  //      )
+  //  }
+
+ 
 }

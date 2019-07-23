@@ -19,6 +19,7 @@
                 </button>
                 <input matInput placeholder="Search">
             </mat-card>
+            
         </div>
         <div fxLayout="row" class="left-icon1">
 
@@ -42,21 +43,30 @@
         </div>
 
         <div fxLayout="row">
-
+                <button mat-button [matMenuTriggerFor]="menu" mat-icon-button>
+                        <mat-icon>
+                                account_circle
+                        </mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                            
+                            <button mat-menu-item (click)="onLogOut()">SingOut</button>
+                        </mat-menu>
+<!-- 
             <button mat-icon-button>
                 <mat-icon>account_circle</mat-icon>
-            </button>
+            </button> -->
         </div>
     </mat-toolbar>
 </div>
-
 <mat-sidenav-container class="example-container">
-    <app-note></app-note>
+   
     <mat-sidenav #sidenav class="example-sidenav" mode="side">
+          
         <mat-nav-list class="navigationlist">
             <mat-list class="mat-list">
                 <div>
-                    <button mat-button>
+                    <button mat-button (click)="getNote()">
                         <mat-icon>lightbulb_outline</mat-icon> Notes
                     </button>
                 </div>
@@ -71,12 +81,13 @@
                     </button>
                 </div>
                 <div>
-                    <button mat-button>
+                    <button mat-button (click)="archiveShow()">
                         <mat-icon>archive</mat-icon> Archive
                     </button>
                 </div>
                 <div>
-                    <button mat-button>
+                        <!-- (click)="trashShow() -->
+                    <button mat-button (click)="trashShow()">
                         <mat-icon>delete </mat-icon>
                         Bin
                     </button>
@@ -84,4 +95,8 @@
             </mat-list>
         </mat-nav-list>
     </mat-sidenav>
+    
+     <mat-sidenav-content class="content"> 
+            <router-outlet></router-outlet>
+       </mat-sidenav-content> 
 </mat-sidenav-container>
