@@ -29,6 +29,10 @@ import { GetNoteComponent } from './components/get-note/get-note.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { IconComponent } from './components/icon/icon.component';
+import { DeleteAndRestoreComponent } from './components/delete-and-restore/delete-and-restore.component';
+import { UpdatenotecomponentComponent } from './components/updatenotecomponent/updatenotecomponent.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditlabelComponent } from './components/editlabel/editlabel.component';
 
 
 @NgModule({
@@ -44,6 +48,10 @@ import { IconComponent } from './components/icon/icon.component';
     ArchiveComponent,
     TrashComponent,
     IconComponent,
+    DeleteAndRestoreComponent,
+    UpdatenotecomponentComponent,
+    EditlabelComponent,
+    
     
     
   ],
@@ -68,7 +76,7 @@ import { IconComponent } from './components/icon/icon.component';
     MatSidenavModule,
     MatTooltipModule,
     MatListModule,
-    
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

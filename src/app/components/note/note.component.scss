@@ -5,17 +5,21 @@
     
 }
 .mat-card{
-    margin-left:300px;
     margin-right: 200px;
     padding: 4px;
     width: fit-content;
     padding: 4px;
+    margin-left: 203px;
+    border-radius: 15px;
+    margin-top:15px;
     
 }
 
 .mat-card-below{
-    width: 624px;
+    width: 550px;
     position: initial;
+    height: 120px;
+    margin-left: 203px;
 
 }
 .mat-card-below-input{
@@ -23,6 +27,7 @@
     width: inherit;
     border: transparent;
     margin:3px;
+    border-radius: 3px;
 }
 
 .getNote{

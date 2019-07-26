@@ -1,6 +1,4 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-
-  <div fxLayout="row" fxLayouAlign="center center">
     <!-- (click)=" OnOpen()" *ngIf="open===false" -->
     <mat-card (click)=" OnOpen()" *ngIf="open===false">
       <input matInput placeholder="Take a Note" class="mat-card-input">
@@ -14,54 +12,26 @@
         <button mat-icon-button>
           <mat-icon>crop_original</mat-icon>
         </button>
-        <!-- <mdb-icon far icon="check-square"></mdb-icon> -->
+        
       </div>
     </mat-card>
-  </div>
+  
   <div fxLayout="row" fxLayoutAlign="center center">
     <!-- *ngIf="open===true" -->
     <form [formGroup]="noteForm">
-    <mat-card class="mat-card-below" *ngIf="open===true">
-      <div fxLayout="column" fxLayoutAlign="start">
-       
+    <mat-card class="mat-card-below" *ngIf="open==true">
           <input matInput placeholder="Title" class="mat-card-below-input" formControlName="title">
           <input matInput placeholder="Take a Note .." class="mat-card-below-input" formControlName="description">
-      
-      </div>
-      <app-icon></app-icon>
-      <button mat-icon-button (click)="OnCreateNote()" (click)="OnClose()" *ngIf="open===true">
-          close
-        </button>
-      <!-- <div fxLayout="row" fxLayoutAlign="start">
-        <button mat-icon-button>
-          <mat-icon>notifications_none</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon>person_add</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon>color_lens</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon>crop_original</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon>archive</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon>undo</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon>redo</mat-icon>
-        </button> -->
-        <!-- (click)="OnClose()" *ngIf="open===true" -->
-        
-      
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"> 
+          <app-icon></app-icon>  
+          <button mat-icon-button (click)="OnCreateNote()" (click)="OnClose()" *ngIf="open==true">
+              close
+            </button>
+        </div>
     </mat-card>
   </form>
-  </div>
-    <app-get-note></app-get-note>  
+  </div> 
 </div>
+<div fxLayout="column" fxLayoutAlign="center center">
+   <app-get-note></app-get-note>  
+</div> 

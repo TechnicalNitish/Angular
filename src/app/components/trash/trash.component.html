@@ -1,24 +1,7 @@
 <div *ngFor="let item of noteList" fxLayout="column" fxLayoutAlign="center center">
-    <mat-card>
+    <mat-card >
             <p>{{item.title}}</p>
             <p>{{item.description}}</p>
-            <div fxLayout="row" fxLayoutAlign="start">
-                
-                <!-- <button mat-icon-button>
-                  <mat-icon>more_vert</mat-icon>
-                </button> -->
-
-                <button mat-button [matMenuTriggerFor]="menu" mat-icon-button>
-                    <mat-icon>
-                            more_vert
-                    </mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="deletePermanent()">Delete Forever</button>
-                        <!-- (click)="restoreNote()" -->
-                        <button mat-menu-item>Restore</button>
-        
-                    </mat-menu>
-            </div>
+           <app-delete-and-restore [trashInfo]="item"></app-delete-and-restore>
     </mat-card>
 </div>

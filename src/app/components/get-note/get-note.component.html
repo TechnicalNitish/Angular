@@ -1,28 +1,10 @@
 <div class="mainCard" *ngFor="let item of noteList">
-    <mat-card >
-        <p>{{item.title}}</p>
-        <p> {{item.description}}</p>
-        <app-icon [noteInfo]="item"></app-icon>
-        <!-- <div fxLayout="row" fxLayoutAlign="start">
-                <button mat-icon-button>
-                  <mat-icon>notifications_none</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon>person_add</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon>color_lens</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon>crop_original</mat-icon>
-                </button>
-                <button mat-icon-button (click)=" onArchive()">
-                  <mat-icon>archive</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon>more_vert</mat-icon>
-                </button>
-            </div> -->
-        </mat-card>
-   
+    <mat-card>
+        <div (click)="openNote(item)">
+            <p>{{item.title}}</p>
+            <p> {{item.description}}</p>
+        </div>
+     <app-icon noteInfo="item"></app-icon>
+    </mat-card>
+
 </div>

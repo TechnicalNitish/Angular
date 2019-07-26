@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatSnackBar, fadeInItems } from '@angular/material';
 import { NoteService } from 'src/app/service/note.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-archive',
@@ -9,9 +10,10 @@ import { NoteService } from 'src/app/service/note.service';
 })
 export class ArchiveComponent implements OnInit {
   noteList:any;
+  @Input() 
+  noteInfo:any;
+  constructor(private noteservice:NoteService,private snackBar:MatSnackBar,private route:Router) { }
   
-  constructor(private noteservice:NoteService,private snackbar:MatSnackBar) { }
-
   ngOnInit() {
     this.getArchive();
   }
@@ -25,4 +27,18 @@ export class ArchiveComponent implements OnInit {
       }
     )
   }
+
+  
+//   onArchive()
+//   {
+//       this.noteservice.getRequest("noteservice/archive?noteid="+this.noteInfo.noteId).subscribe
+//       (
+//         data =>{
+          
+//             this.snackBar.open("UnArchived","Done");
+//               this.route.navigateByUrl("home");
+//         }
+//       )
+//   }
+
 }

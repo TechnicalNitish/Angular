@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayoutAlign="start">
+    <button mat-button [matMenuTriggerFor]="menu" mat-icon-button>
+        <mat-icon>
+                more_vert
+        </mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+            <!-- (click)="deletePermanent()" -->
+            <!-- (click)="restoreNote()" -->
+            <button mat-menu-item (click)="deletePermanent()">Delete Forever</button>
+            <!-- (click)="restoreNote()" -->
+            <button mat-menu-item (click)=" restoreNote()">Restore</button>
+
+        </mat-menu>
+</div>

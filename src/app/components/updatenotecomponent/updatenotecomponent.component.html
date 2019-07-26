@@ -1,0 +1,23 @@
+<div fxLayoutAlign="start start">
+        <form [formGroup]="updateForm">
+            <mat-card-content fxLayout="column" fxLayoutAlign="start start" *ngIf="open">
+                <div fxLayout="column" fxLayoutAlign="start start">
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Title" formControlName="title">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Description" formControlName="description">
+                    </mat-form-field>
+                    <div fxLayout="row" fxLayoutGap="70">
+                        <div>
+                            <app-icon></app-icon>
+                        </div>
+                        <div>
+                            <button style="margin-left: 125px;" mat-button (click)="onClose()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </form>
+    </div>
+   

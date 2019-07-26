@@ -17,12 +17,12 @@ export class IconComponent implements OnInit {
 
   @Input() noteInfo:any;
 
-
   onArchive()
   {
       this.noteservice.getRequest("noteservice/archive?noteid="+this.noteInfo.noteId).subscribe
       (
         data =>{
+          
             this.snackBar.open("Archived","Done");
               this.route.navigateByUrl("home");
         }
@@ -35,12 +35,8 @@ export class IconComponent implements OnInit {
    
     this.noteservice.getRequest("noteservice/trash?noteid="+this.noteInfo.noteId).subscribe(
       response=>{
-      
-        if(response==200)
-        {
           this.snackBar.open("Is Trashed");
-        
-        }
+          this.route.navigateByUrl("home");
       }
     )
   }

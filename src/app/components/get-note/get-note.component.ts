@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog} from '@angular/material';
+import { UpdatenotecomponentComponent } from '../updatenotecomponent/updatenotecomponent.component';
+import { NoteModel } from 'src/app/Model/note-model';
 
 @Component({
   selector: 'app-get-note',
@@ -9,9 +11,11 @@ import { MatSnackBar } from '@angular/material';
 })
 export class GetNoteComponent implements OnInit {
 
-  constructor(private noteservice: NoteService,private snackbar:MatSnackBar) { }
+  
+  constructor(private noteservice: NoteService, private snackbar: MatSnackBar,private dialog:MatDialog) { }
 
   noteList: any;
+
   ngOnInit() {
     this.getNote();
   }
@@ -19,29 +23,39 @@ export class GetNoteComponent implements OnInit {
   getNote() {
     this.noteservice.getRequest("noteservice/getall").subscribe(
       data => {
-        this.noteList= data;
+        this.noteList = data;
         console.log('get all note ==>', data);
 
       }
     )
   }
 
-  //  @Input() noteInfo:any;
-  //  onArchive()
-  //  {
-  //     this.noteservice.putRequest("noteservice/archive",this.noteInfo.noteid).subscribe(
-  //        data =>{
-  //      if(data==200)
-  //         {
-  //              this.snackbar.open("Archive","Done");
-                
-  //            }
-  //            else{
-  //                this.snackbar.open("Not Archived");
-  //           }
-  //        }
-  //      )
-  //  }
+  // openNote(note:any)
+  // {
+  //   const ref=this.dialog.open(UpdatenotecomponentComponent,{
+  //     height:"260px",
+  //     width:"500px",
 
- 
+  //   //   data:{
+  //   //     noteId:note.noteId,
+  //   //     title:note.title,
+  //   //     description:note.description
+  //   //   }
+  //   // }
+  //   // )
+  openNote(note:any){
+    const ref=this.dialog.open(UpdatenotecomponentComponent,{
+      height:"260px",
+      width:"500px",
+
+      data:
+      {
+        noteId:note.noteId,
+        title:note.title,
+        description:note.description
+      }
+    })
+  }
+
+
 }

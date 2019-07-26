@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material';
 export class TrashComponent implements OnInit {
   noteList:any;
   @Input() noteInfo:any;
+  data:any;
   constructor(private noteservice:NoteService,private route:Router,private snackbar:MatSnackBar) { }
 
   ngOnInit() {
@@ -23,29 +24,9 @@ export class TrashComponent implements OnInit {
       data=>{
           this.noteList=data;
           console.log("all Note =>",data);
+          
       })
 
   }
-
-   restoreNote()
-  {
-    this.noteservice.getRequest("noteservice/trash"+this.noteInfo.noteId).subscribe(
-        data=>{
-            
-                 this.route.navigateByUrl("home");
-                 this.snackbar.open("Restored","Done");
-      }
-    )
-   }
-
-  deletePermanent()
-  {
-    this.noteservice.deleteRequest("noteservice/delete?noteid"+this.noteInfo.noteId).subscribe(
-        data =>{
-          this.snackbar.open("Deleted");
-           this.route.navigateByUrl("home");
-        }
-    )
-    
-  }
+  
 }

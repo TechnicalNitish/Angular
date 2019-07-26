@@ -76,7 +76,7 @@
                     </button>
                 </div>
                 <div>
-                    <button mat-button>
+                    <button mat-button (click)="openDialog()">
                         <mat-icon>edit</mat-icon> Edit
                     </button>
                 </div>
@@ -95,7 +95,6 @@
             </mat-list>
         </mat-nav-list>
     </mat-sidenav>
-    
      <mat-sidenav-content class="content"> 
             <router-outlet></router-outlet>
        </mat-sidenav-content> 

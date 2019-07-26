@@ -10,6 +10,9 @@ import { TrashComponent } from './components/trash/trash.component';
 import { GetNoteComponent } from './components/get-note/get-note.component';
 import { IconComponent } from './components/icon/icon.component';
 import { NoteComponent } from './components/note/note.component';
+import { DeleteAndRestoreComponent } from './components/delete-and-restore/delete-and-restore.component';
+import { UpdatenotecomponentComponent } from './components/updatenotecomponent/updatenotecomponent.component';
+import { EditlabelComponent } from './components/editlabel/editlabel.component';
 
 const routes: Routes = [
   {
@@ -17,7 +20,7 @@ const routes: Routes = [
     component:RegisterComponent
   },
   {
-    path:"login",
+    path:"",
     component:LoginComponent
   },
   {
@@ -47,39 +50,29 @@ const routes: Routes = [
       {
         path:"get-note",
         component:GetNoteComponent
+      },
+      {
+        path:'deleteandrestore',
+        component:DeleteAndRestoreComponent
+      },
+      {
+        path:'updatenote',
+        component:UpdatenotecomponentComponent
       }
-    ]
-      
-    },
      
-  
-  // {
-  //   path:"note",
-  //   component:NoteComponent
-  // }
-  // {
-  //   path:"loginpractice",
-  //   component:LoginpracticeComponent
-  // }
-   
-  
-  // {
-  // path:"dialogueBox",
-  // component:DialogueBoxComponent
-  // },
-//   {
-//     path:'noteGet',
-//   component:GetNoteComponent
-// },
-
+    ]
+    
+    },
  {
    path:'trashIcon',
    component:IconComponent
- }
+ },
+ {
+  path:'editlabel',
+  component:EditlabelComponent
+}
 
 ];
-
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   

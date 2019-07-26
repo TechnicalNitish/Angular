@@ -1,0 +1,25 @@
+<form [formGroup]="labelForm">
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Create a new Label" formControlName="labelName">
+        </mat-form-field>
+    </div>
+
+    <div fxLayoutAlign="start center" fxLayout="row" *ngFor="let item of labelList">
+        <button mat-button (click)="deleteLabel(item)">
+            <mat-icon matTooltip="Delete a label">delete</mat-icon>
+        </button>
+        
+        <input matInput value="{{item.labelName}}" formControlName="labelName" >
+        
+        <button mat-button (click)="updateLabel(item)">
+            <!-- (click)="updatelabel()" -->
+            <mat-icon matTooltip="Rename label">create</mat-icon>
+        </button>
+        <!-- </form> -->
+
+    </div>
+    <div style="float:right">
+        <button mat-button (click)="createLabel()">Done</button>
+    </div>
+</form>
