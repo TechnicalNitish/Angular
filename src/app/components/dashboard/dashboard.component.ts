@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TrashComponent } from '../trash/trash.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { EditlabelComponent } from '../editlabel/editlabel.component';
+import { NoteService } from 'src/app/service/note.service';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { NoteModel } from 'src/app/Model/note-model';
+import { SelectorMatcher } from '@angular/compiler';
+import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,15 +16,36 @@ import { EditlabelComponent } from '../editlabel/editlabel.component';
 })
 export class DashboardComponent implements OnInit {
 
-  
-  constructor(private route:Router,private dialog:MatDialog) { }
+  noteList:any;
+  constructor(private route:Router,private dialog:MatDialog,
+    private noteservice:NoteService,
+    private formBuilder: FormBuilder,
+    private matSnackbar: MatSnackBar) { }
 
-  
-  
-  ngOnInit() {
+    note: NoteModel = new NoteModel();
+    token:string;
+    data:any;
     
+  ngOnInit() {
+  
   }
+  searchForm = this.formBuilder.group({
+    'text': new FormControl(this.note.title),
+    'description' : new FormControl(this.note.description)
+  })
 
+
+    onSearch(event) {
+      
+      this.noteservice.getRequest("noteservice/search?text="+this.searchForm.value).subscribe(
+        
+        (response:any)=>{
+          if(response.statusCode == 200) {
+            
+          }
+        }
+      )
+    }
 
         onLogOut()
         {
@@ -53,5 +79,10 @@ export class DashboardComponent implements OnInit {
           // }
           });
           
+      }
+
+      gridGetNote()
+      {
+         this.route.navigateByUrl("home/grid");
       }
 }

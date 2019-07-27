@@ -14,11 +14,16 @@
 
         <div fxLayout="row" fcFlex="40">
             <mat-card>
-                <button mat-icon-button>
-                    <mat-icon class="search">search</mat-icon>
-                </button>
-                <input matInput placeholder="Search">
+                <form [formGroup] = "searchForm"> 
+
+                        <button mat-icon-button (click)="onSearch()">
+                                <mat-icon class="search">search</mat-icon>
+                            </button>
+                            <input matInput placeholder="Search" formControlName="text">
+                        
+                </form>
             </mat-card>
+              
             
         </div>
         <div fxLayout="row" class="left-icon1">
@@ -30,16 +35,12 @@
         </div>
 
         <div fxLayout="column" fxLayoutAlign="start">
-            <button mat-button [matMenuTriggerFor]="menu" mat-icon-button>
+            <button mat-button  mat-icon-button (click)=" gridGetNote()" >
                 <mat-icon>
-                    apps
+                    grid_on
                 </mat-icon>
             </button>
-
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>emailidoflogged</button>
-                <button mat-menu-item>SingOut</button>
-            </mat-menu>
+            
         </div>
 
         <div fxLayout="row">
@@ -75,7 +76,10 @@
                         <mat-icon>notifications_none</mat-icon> Reminder
                     </button>
                 </div>
+                <span>Labels</span>
+                <!-- <app-editlabel></app-editlabel> -->
                 <div>
+                     
                     <button mat-button (click)="openDialog()">
                         <mat-icon>edit</mat-icon> Edit
                     </button>
@@ -92,6 +96,7 @@
                         Bin
                     </button>
                 </div>
+                
             </mat-list>
         </mat-nav-list>
     </mat-sidenav>

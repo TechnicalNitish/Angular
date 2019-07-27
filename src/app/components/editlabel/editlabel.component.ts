@@ -73,7 +73,7 @@ export class EditlabelComponent implements OnInit {
 
 
   updateLabel(labels) {
-    this.labelservice.putRequest("labelservice/update?labelid=" + labels.labelid ,this.labelForm.value).subscribe
+    this.labelservice.putRequest("labelservice/update?labelid=" +labels.labelid ,this.labelForm.value).subscribe
       (
         (response: any) => {
           if (response.statuscode == 200) {

@@ -1,0 +1,9 @@
+<div *ngFor="let item of noteList" class="maincard" fxLayout="column" fxLayoutAlign="center center">
+        <mat-card>
+            <p>{{item.title}}</p>
+            <p>{{item.description}}</p>
+            
+            <app-icon [noteInfo]="item"></app-icon>
+        </mat-card>
+       
+</div> 

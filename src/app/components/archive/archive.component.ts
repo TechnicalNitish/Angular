@@ -29,16 +29,16 @@ export class ArchiveComponent implements OnInit {
   }
 
   
-//   onArchive()
-//   {
-//       this.noteservice.getRequest("noteservice/archive?noteid="+this.noteInfo.noteId).subscribe
-//       (
-//         data =>{
+  // onArchive()
+  // {
+  //     this.noteservice.getRequest("noteservice/archive?noteid="+this.noteInfo.noteId).subscribe
+  //     (
+  //       data =>{
           
-//             this.snackBar.open("UnArchived","Done");
-//               this.route.navigateByUrl("home");
-//         }
-//       )
-//   }
+  //           this.snackBar.open("UnArchived","Done");
+  //             this.route.navigateByUrl("home");
+  //       }
+  //     )
+  // }
 
 }

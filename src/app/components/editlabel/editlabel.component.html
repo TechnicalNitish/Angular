@@ -9,12 +9,12 @@
         <button mat-button (click)="deleteLabel(item)">
             <mat-icon matTooltip="Delete a label">delete</mat-icon>
         </button>
-        
-        <input matInput value="{{item.labelName}}" formControlName="labelName" >
+    
+        <input matInput value="{{item.labelName}}"  formControlName="labelName">
         
         <button mat-button (click)="updateLabel(item)">
-            <!-- (click)="updatelabel()" -->
-            <mat-icon matTooltip="Rename label">create</mat-icon>
+            <!--  -->
+            <mat-icon matTooltip="Rename label" (click)="updatelabel()">create</mat-icon>
         </button>
         <!-- </form> -->
 

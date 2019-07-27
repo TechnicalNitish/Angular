@@ -2,7 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
 import { MatSnackBar, MatDialog} from '@angular/material';
 import { UpdatenotecomponentComponent } from '../updatenotecomponent/updatenotecomponent.component';
-import { NoteModel } from 'src/app/Model/note-model';
 
 @Component({
   selector: 'app-get-note',

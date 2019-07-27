@@ -33,6 +33,7 @@ import { DeleteAndRestoreComponent } from './components/delete-and-restore/delet
 import { UpdatenotecomponentComponent } from './components/updatenotecomponent/updatenotecomponent.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EditlabelComponent } from './components/editlabel/editlabel.component';
+import { GridviewComponent } from './components/gridview/gridview.component';
 
 
 @NgModule({
@@ -51,6 +52,8 @@ import { EditlabelComponent } from './components/editlabel/editlabel.component';
     DeleteAndRestoreComponent,
     UpdatenotecomponentComponent,
     EditlabelComponent,
+    GridviewComponent,
+    
     
     
     

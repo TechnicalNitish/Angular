@@ -26,8 +26,8 @@ export class UpdatenotecomponentComponent implements OnInit {
     this.updateForm = new FormBuilder().group({
 
       "title": new FormControl(this.notedata.title),
-      "description": new FormControl(this.notedata.description),
-      "noteid": new FormControl(this.notedata.noteId)
+      "description": new FormControl(this.notedata.description)
+      // "noteid": new FormControl(this.notedata.noteId)
     });
   }
 

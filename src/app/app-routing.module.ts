@@ -13,6 +13,7 @@ import { NoteComponent } from './components/note/note.component';
 import { DeleteAndRestoreComponent } from './components/delete-and-restore/delete-and-restore.component';
 import { UpdatenotecomponentComponent } from './components/updatenotecomponent/updatenotecomponent.component';
 import { EditlabelComponent } from './components/editlabel/editlabel.component';
+import { GridviewComponent } from './components/gridview/gridview.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
       {
         path:'updatenote',
         component:UpdatenotecomponentComponent
+      },
+      {
+        path:'grid',
+        component:GridviewComponent
       }
      
     ]
