@@ -5,9 +5,7 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { EditlabelComponent } from '../editlabel/editlabel.component';
 import { NoteService } from 'src/app/service/note.service';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { NoteModel } from 'src/app/Model/note-model';
-import { SelectorMatcher } from '@angular/compiler';
-import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,33 +16,36 @@ export class DashboardComponent implements OnInit {
 
   noteList:any;
   constructor(private route:Router,private dialog:MatDialog,
-    private noteservice:NoteService,
-    private formBuilder: FormBuilder,
-    private matSnackbar: MatSnackBar) { }
+    private noteservice:NoteService) { }
+    private obtainNotes = new BehaviorSubject([]);
+    currentMessage = this.obtainNotes.asObservable();
 
-    note: NoteModel = new NoteModel();
-    token:string;
-    data:any;
+    // note: NoteModel = new NoteModel();
+    // token:string;
+    // data:any;
     
   ngOnInit() {
   
   }
-  searchForm = this.formBuilder.group({
-    'text': new FormControl(this.note.title),
-    'description' : new FormControl(this.note.description)
-  })
+  // searchForm = this.formBuilder.group({
+  //   'text': new FormControl(this.note.title),
+  //   'description' : new FormControl(this.note.description)
+  // })
 
 
-    onSearch(event) {
-      
-      this.noteservice.getRequest("noteservice/search?text="+this.searchForm.value).subscribe(
-        
-        (response:any)=>{
-          if(response.statusCode == 200) {
-            
-          }
+  onsearch(text:any) {
+      this.noteservice.getRequest("noteservice/search?text="+text).subscribe
+      (
+        (response:any):any=>
+        {
+          this.obtainNotes.next(response)
+          this.route.navigate(['home/search']);
         }
       )
+      
+
+        
+            
     }
 
         onLogOut()

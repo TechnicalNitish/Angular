@@ -8,6 +8,7 @@ import { NoteService } from 'src/app/service/note.service';
 })
 export class GridviewComponent implements OnInit {
 
+  
   noteList:any;
   constructor(private noteservice:NoteService) { }
 

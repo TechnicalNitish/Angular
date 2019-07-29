@@ -35,10 +35,10 @@ export class EditlabelComponent implements OnInit {
     this.labelservice.postRequest("labelservice/create", this.labelForm.value).subscribe(
       (response: any) => {
         if (response.statuscode == 200) {
-          this.snackbar.open(response.statusmessage, "Done");
+          this.snackbar.open("Label Created", "Done");
         }
         else {
-          this.snackbar.open(response.statusmessage, "Not Creates");
+          this.snackbar.open("Label not Created", "ok");
         }
       });
 

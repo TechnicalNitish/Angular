@@ -18,7 +18,7 @@ export class NoteService {
     return this.http.post(this.baseUrl + url, data, { headers: new HttpHeaders().set("token", localStorage.getItem('token') || '') });
   }
   public getRequest(url: any) {
-    return this.http.get(this.baseUrl + url, { headers: new HttpHeaders().set("token", localStorage.getItem('token') || '') });
+    return this.http.get(this.baseUrl + url, { headers: new HttpHeaders().set("token", localStorage.getItem('token'))});
   }
   public deleteRequest(url: any) {
     return this.http.delete(this.baseUrl + url, { headers: new HttpHeaders().set('token', localStorage.getItem('token') || '') });
@@ -26,4 +26,5 @@ export class NoteService {
   public putRequest(url: any,data:any) {
     return this.http.put(this.baseUrl + url,data,{ headers: new HttpHeaders().set('token', localStorage.getItem('token') ) });
   }
+  
 }

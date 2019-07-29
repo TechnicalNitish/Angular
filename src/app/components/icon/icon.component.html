@@ -24,9 +24,22 @@
         <mat-menu #menu="matMenu">
                 
                 <button mat-menu-item (click)="onTrash()">Delete Note</button>
-                <button mat-menu-item>Add Label</button>
+                <button mat-menu-item [matMenuTriggerFor]="labelTrigger">Add Label</button>
 
             </mat-menu>
+
+            <div>
+                <mat-menu #labelTrigger="matMenu">
+                  <div>Label note</div>
+                  <div *ngFor="let label of labelList">
+                      <!-- class="addlabel" (click)="addLabeltoNote(labels)" -->
+                    <mat-checkbox (click)="addLabeltoNote(label)">
+                       {{label.labelName}} 
+                    </mat-checkbox>
+              
+                  </div>
+                </mat-menu>
+              </div>
         <!-- <button mat-icon-button>
           <mat-icon>more_vert</mat-icon>
         </button> -->

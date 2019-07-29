@@ -34,6 +34,9 @@ import { UpdatenotecomponentComponent } from './components/updatenotecomponent/u
 import {MatDialogModule} from '@angular/material/dialog';
 import { EditlabelComponent } from './components/editlabel/editlabel.component';
 import { GridviewComponent } from './components/gridview/gridview.component';
+import { SearchComponent } from './components/search/search.component';
+import { GetLabelComponent } from './components/get-label/get-label.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -53,6 +56,8 @@ import { GridviewComponent } from './components/gridview/gridview.component';
     UpdatenotecomponentComponent,
     EditlabelComponent,
     GridviewComponent,
+    SearchComponent,
+    GetLabelComponent,
     
     
     
@@ -79,7 +84,8 @@ import { GridviewComponent } from './components/gridview/gridview.component';
     MatSidenavModule,
     MatTooltipModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

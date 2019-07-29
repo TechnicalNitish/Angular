@@ -14,16 +14,21 @@
 
         <div fxLayout="row" fcFlex="40">
             <mat-card>
-                <form [formGroup] = "searchForm"> 
+                
 
                         <button mat-icon-button (click)="onSearch()">
                                 <mat-icon class="search">search</mat-icon>
                             </button>
-                            <input matInput placeholder="Search" formControlName="text">
+                         <input  (input)="onsearch($event.target.value)" matInput placeholder="Search" #text value="">
                         
-                </form>
+                
             </mat-card>
-              
+            <!-- <div *ngFor="let item of noteList">
+            <mat-card>
+                    <p>item.title</p>
+                    <p>item.description</p>
+            </mat-card>
+             </div> -->
             
         </div>
         <div fxLayout="row" class="left-icon1">
@@ -77,7 +82,7 @@
                     </button>
                 </div>
                 <span>Labels</span>
-                <!-- <app-editlabel></app-editlabel> -->
+                <app-get-label></app-get-label> 
                 <div>
                      
                     <button mat-button (click)="openDialog()">

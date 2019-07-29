@@ -14,6 +14,7 @@ import { DeleteAndRestoreComponent } from './components/delete-and-restore/delet
 import { UpdatenotecomponentComponent } from './components/updatenotecomponent/updatenotecomponent.component';
 import { EditlabelComponent } from './components/editlabel/editlabel.component';
 import { GridviewComponent } from './components/gridview/gridview.component';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,10 @@ const routes: Routes = [
       {
         path:'grid',
         component:GridviewComponent
+      },
+      {
+        path:'search',
+        component:SearchComponent
       }
      
     ]
