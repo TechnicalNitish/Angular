@@ -12,6 +12,25 @@ import { LabelService } from 'src/app/service/label.service';
 export class IconComponent implements OnInit {
 
   labelList:any;
+  colors=[
+    [
+    {colorName:"white",colorCode:'#FFFFFF'},
+    {colorName:"green",colorCode:'#008000'},
+    {colorName:"grey",colorCode:'#808080'}],
+
+    [
+      {colorName:"indian red", colorCode:'#CD5C5C'},
+      {colorName:"crimson" , colorCode:'#DC143C'},
+      {colorName:"yellow", colorCode:'#FFFF00'}
+     ],
+    [
+    {colorName:"Purple", colorCode:"#800080"},
+    {colorName:"Teal", colorCode:"#008080"},
+    {colorName:"Light blue",colorCode:"#ADD8E6"}
+   ] 
+    
+
+  ]
   constructor(private noteservice:NoteService,private snackBar:MatSnackBar,private route:Router,private labelservice:LabelService) { }
 
   ngOnInit() {
@@ -69,5 +88,21 @@ export class IconComponent implements OnInit {
 
         this.labelList = response;
       });
+  }
+
+
+  OnColor(colorName:any)
+  {
+      this.noteservice.getRequest("noteservice/color/noteid?="+this.noteInfo.noteId+"&color="+colorName.value).subscribe(
+
+        (response:any)=>{
+          if(response.statuscode==200)
+          {
+            this
+          }
+        }
+      )
+
+     
   }
 }

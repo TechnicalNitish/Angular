@@ -15,6 +15,7 @@ import { BehaviorSubject } from 'rxjs';
 export class DashboardComponent implements OnInit {
 
   noteList:any;
+  image:string;
   constructor(private route:Router,private dialog:MatDialog,
     private noteservice:NoteService) { }
     private obtainNotes = new BehaviorSubject([]);
@@ -25,7 +26,7 @@ export class DashboardComponent implements OnInit {
     // data:any;
     
   ngOnInit() {
-  
+      this.getImage();
   }
   // searchForm = this.formBuilder.group({
   //   'text': new FormControl(this.note.title),
@@ -52,7 +53,7 @@ export class DashboardComponent implements OnInit {
         {
           localStorage.removeItem('token');
         
-          this.route.navigateByUrl("/login");
+          this.route.navigateByUrl("login");
         }
 
         trashShow()
@@ -86,4 +87,14 @@ export class DashboardComponent implements OnInit {
       {
          this.route.navigateByUrl("home/grid");
       }
+
+      getImage()
+      {
+        this.noteservice.getRequest("noteservice/getimage").subscribe(
+          (Response:any)=>{
+            this.image=Response,
+          console.log("dsdsdsdsd"+Response),
+          console.log(this.image)});
+      }
+  
 }
