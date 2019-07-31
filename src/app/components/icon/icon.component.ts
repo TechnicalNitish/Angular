@@ -91,18 +91,16 @@ export class IconComponent implements OnInit {
   }
 
 
-  OnColor(colorName:any)
-  {
-      this.noteservice.getRequest("noteservice/color/noteid?="+this.noteInfo.noteId+"&color="+colorName.value).subscribe(
-
-        (response:any)=>{
-          if(response.statuscode==200)
-          {
-            this
-          }
+  setColor(color) {
+    console.log(color);
+    console.log(this.noteInfo.noteId);
+    this.noteservice.getRequestColor("noteservice/color?colorCode=" + color + "&noteid=" + this.noteInfo.noteId).subscribe(
+      (response: any) => {
+        if (response.statusCode === 200) {
+          // this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open("Successfull","close",{duration:2500});
         }
-      )
-
-     
+      }
+    );
   }
 }

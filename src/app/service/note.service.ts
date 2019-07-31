@@ -27,4 +27,8 @@ export class NoteService {
     return this.http.put(this.baseUrl + url,data,{ headers: new HttpHeaders().set('token', localStorage.getItem('token') ) });
   }
   
+  public getRequestColor(url:any)
+  {
+    return this.http.get(this.baseUrl+url,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))});
+  }
 }

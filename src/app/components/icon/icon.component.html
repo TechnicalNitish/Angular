@@ -49,16 +49,17 @@
         <button mat-icon-button>
           <mat-icon>redo</mat-icon>
         </button> -->
-        <mat-menu #color="matMenu" [overlapTrigger]="false">
-            <div fxLayout="row"  *ngFor="let color of colors">      
-                 <!-- <div *ngFor="let noteColor of color">
-                     (click)="onColor(noteColor.colorCode)" 
-                  <button [ngStyle]="{'background-color':noteColor.colorCode}"  
-                  matTooltip="{{noteColor.colorName}}"> </buttom> 
-              </div>   -->
-            </div>
-      
-          </mat-menu>
+
+
+<mat-menu #color="matMenu" [overlapTrigger]="false">
+  <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let color of colors">
+    <div *ngFor="let noteColor of color">
+      <button [ngStyle]="{ 'background-color': noteColor.colorCode }" (click)="setColor(noteColor.colorName)"
+        matTooltip="{{ noteColor.colorName }}" mat-mini-fab></button>
+    </div>
+  </div>
+</mat-menu>
+        
     </div>
 
     

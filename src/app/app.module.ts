@@ -37,7 +37,7 @@ import { GridviewComponent } from './components/gridview/gridview.component';
 import { SearchComponent } from './components/search/search.component';
 import { GetLabelComponent } from './components/get-label/get-label.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import { AuthGuard } from './service/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -87,7 +87,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDialogModule,
     MatCheckboxModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,19 +14,21 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 
-  noteList:any;
-  image:string;
-  constructor(private route:Router,private dialog:MatDialog,
-    private noteservice:NoteService) { }
-    private obtainNotes = new BehaviorSubject([]);
-    currentMessage = this.obtainNotes.asObservable();
+  noteList: any;
+  image: string;
+  open:boolean=false;
+  
+  constructor(private route: Router, private dialog: MatDialog,
+    private noteservice: NoteService) { }
+  private obtainNotes = new BehaviorSubject([]);
+  currentMessage = this.obtainNotes.asObservable();
 
-    // note: NoteModel = new NoteModel();
-    // token:string;
-    // data:any;
-    
+  // note: NoteModel = new NoteModel();
+  // token:string;
+  // data:any;
+
   ngOnInit() {
-      this.getImage();
+    this.getImage();
   }
   // searchForm = this.formBuilder.group({
   //   'text': new FormControl(this.note.title),
@@ -34,67 +36,67 @@ export class DashboardComponent implements OnInit {
   // })
 
 
-  onsearch(text:any) {
-      this.noteservice.getRequest("noteservice/search?text="+text).subscribe
+  onsearch(text: any) {
+    this.noteservice.getRequest("noteservice/search?text=" + text).subscribe
       (
-        (response:any):any=>
-        {
+        (response: any): any => {
           this.obtainNotes.next(response)
           this.route.navigate(['home/search']);
         }
       )
-      
+  }
 
-        
-            
+
+  onLogOut() {
+    localStorage.removeItem('token');
+
+    this.route.navigateByUrl("login");
+  }
+
+  trashShow() {
+    this.route.navigateByUrl("home/trash");
+  }
+
+  archiveShow() {
+    this.route.navigateByUrl("home/archive");
+  }
+  getNote() {
+    this.route.navigateByUrl("home/get-note");
+  }
+
+
+  openDialog(label: any) {
+    const dialogRef = this.dialog.open(EditlabelComponent, {
+      // height:"200px",
+      width: "300px",
+      // data:{
+      //   labelName:label.labelName
+      // }
+    });
+
+  }
+
+  gridGetNote() {
+    if(this.open==false)
+    {
+      this.open=true;
+      this.route.navigateByUrl("home/grid");
+    
+    }else if(this.open==true)
+    {
+      this.open=false;
+      this.route.navigate(['home']);
     }
+  }
 
-        onLogOut()
-        {
-          localStorage.removeItem('token');
-        
-          this.route.navigateByUrl("login");
-        }
+  getImage() {
+    this.noteservice.getRequest("noteservice/getimage").subscribe(
+      (Response: any) => {
+        this.image = Response,
+          console.log("dsdsdsdsd" + Response),
+          console.log(this.image)
+      });
+  }
 
-        trashShow()
-        {
-          this.route.navigateByUrl("home/trash");
-        }
-
-      archiveShow()
-      {
-        this.route.navigateByUrl("home/archive");
-      }
-      getNote()
-      {
-        this.route.navigateByUrl("home/get-note");
-      }
-
-
-      openDialog(label:any)
-      {
-        const dialogRef =this.dialog.open(EditlabelComponent,{
-         // height:"200px",
-          width:"300px",
-          // data:{
-          //   labelName:label.labelName
-          // }
-          });
-          
-      }
-
-      gridGetNote()
-      {
-         this.route.navigateByUrl("home/grid");
-      }
-
-      getImage()
-      {
-        this.noteservice.getRequest("noteservice/getimage").subscribe(
-          (Response:any)=>{
-            this.image=Response,
-          console.log("dsdsdsdsd"+Response),
-          console.log(this.image)});
-      }
   
 }

@@ -15,6 +15,7 @@ import { UpdatenotecomponentComponent } from './components/updatenotecomponent/u
 import { EditlabelComponent } from './components/editlabel/editlabel.component';
 import { GridviewComponent } from './components/gridview/gridview.component';
 import { SearchComponent } from './components/search/search.component';
+import { AuthGuard } from './service/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -33,7 +34,7 @@ const routes: Routes = [
     path:"reset/:data",
     component:ResetPasswordComponent
   },
-  {
+  { canActivate : [AuthGuard],
     path:"home",
     component:DashboardComponent,
     children:[

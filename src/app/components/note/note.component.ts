@@ -42,6 +42,7 @@ export class NoteComponent implements OnInit {
       this.noteservice.postRequest("noteservice/note", this.noteForm.value).subscribe(
         data => {
           if (data.statuscode == 200) {
+            
             this.snackbar.open(" ", "Done", { duration: 2500 });
           }
           else {
